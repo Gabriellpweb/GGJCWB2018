@@ -10,7 +10,7 @@ using System.Collections;
 public class GameManagerController : MonoBehaviour {
 
 	public int currentLifes;
-	public int amountCrystals;
+	public float score;
 
 	public static class Scenes {
 		public const string STAGE1 = "Stage1";

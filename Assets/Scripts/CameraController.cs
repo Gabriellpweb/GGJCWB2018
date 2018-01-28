@@ -21,6 +21,12 @@ public class CameraController : MonoBehaviour {
     void Start () {
 		originalCamPos = GetComponent<Camera>().transform.position;
 	}
+
+	void Update() {
+		if (Input.GetKey(KeyCode.Space)) {
+			CameraController.instance.shakeCamera (1f, 1f);
+		}
+	}
     
 	/// <summary>
 	/// Shake camera (Tremor).
@@ -42,7 +48,6 @@ public class CameraController : MonoBehaviour {
      * float magnitude
      */
     IEnumerator Shake(Dictionary<string, float> parameters) {
-
         yield return new WaitForSeconds(0.2f);
 
         float elapsed = 0.0f;
@@ -54,32 +59,17 @@ public class CameraController : MonoBehaviour {
             float percentComplete = elapsed / parameters["duration"];
             float damper = 1.0f - Mathf.Clamp(4.0f * percentComplete - 3.0f, 0.0f, 1.0f);
 
-            // map value to [-1, 1]
-            float x = Random.value * 2.0f - 1.0f;
-            float y = Random.value * 2.0f - 1.0f;
-            x *= parameters["magnitude"] * damper;
-            y *= parameters["magnitude"] * damper;
+			// map value to [-1, 1]
+			float x = Random.value * 2.0f - 1.0f;
+			float y = Random.value * 2.0f - 1.0f;
+			x *= parameters["magnitude"] * damper;
+			y *= parameters["magnitude"] * damper;
 
-            float mapX = mapBackground.bounds.size.x;
-            float mapY = mapBackground.bounds.size.y;
+			Camera.main.transform.position = new Vector3(x, y, originalCamPos.z);
 
-			float vertExtent = GetComponent<Camera>().orthographicSize;
-            float horzExtent = vertExtent * Screen.width / Screen.height;
-
-            // Calculations assume map is position at the origin
-            minPositionX = horzExtent - mapX / 2.0f;
-            maxPositionX = mapX / 2.0f - horzExtent;
-            minPositionY = vertExtent - mapY / 2.0f;
-            maxPositionY = mapY / 2.0f - vertExtent;
-
-			GetComponent<Camera>().transform.position = new Vector3(
-				Mathf.Clamp(GetComponent<Camera>().transform.position.x + x, minPositionX, maxPositionX),
-				Mathf.Clamp(GetComponent<Camera>().transform.position.y + y, minPositionY, maxPositionY),
-				originalCamPos.z
-            );
-
-            yield return null;
+			yield return null;
         }
-    }
 
+		Camera.main.transform.position = originalCamPos;
+    }
 }
