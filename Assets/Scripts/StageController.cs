@@ -6,6 +6,23 @@ using UnityEngine.UI;
 public class StageController : MonoBehaviour {
 	
 	public Text txtAmountScore;
+	public Text txtForceFieldAmount;
+
+	private static StageController instance;
+
+	public static StageController Instance {
+		get {
+			if (instance == null) {
+				instance = FindObjectOfType<StageController> ();
+				if (instance == null) {
+					GameObject obj = new GameObject ();
+					obj.hideFlags = HideFlags.HideAndDontSave;
+					instance = obj.AddComponent<StageController> ();
+				}
+			}
+			return instance;
+		}
+	}
 
 	void Start() {
 		InvokeRepeating ("updateScore", 0.4f, 0.4f);

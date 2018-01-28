@@ -43,6 +43,7 @@ public class ForceFieldBehaviour : MonoBehaviour {
 		forceFieldHudEffect.AnimateHit (angle);
 
 		forceFieldHits--;
+		StageController.Instance.txtForceFieldAmount.text = "x" + forceFieldHits.ToString ();
 
 		if (forceFieldHits <= 0) {
 			DisableForceField ();
