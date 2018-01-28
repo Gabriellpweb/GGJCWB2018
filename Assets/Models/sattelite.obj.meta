@@ -5,11 +5,16 @@ ModelImporter:
   fileIDToRecycleName:
     100000: Box002
     100002: //RootNode
+    100004: default
     400000: Box002
     400002: //RootNode
+    400004: default
     2300000: Box002
+    2300002: default
     3300000: Box002
+    3300002: default
     4300000: Box002
+    4300002: default
     9500000: //RootNode
   externalObjects:
   - first:
@@ -17,6 +22,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Box002Mat
     second: {fileID: 2100000, guid: ff4a2087510f4154287b7943ea126c3e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: defaultMat
+    second: {fileID: 2100000, guid: dc258b2665b31164896300846e27239b, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -59,6 +69,8 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
