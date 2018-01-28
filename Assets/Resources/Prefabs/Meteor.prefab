@@ -241,6 +241,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionObject: {fileID: 1587864697296854, guid: 8693eee2bceeb4338a54fcf5f588dc86,
     type: 2}
+  bonusItem:
+  - {fileID: 1863994281332872, guid: 79a7abd8edc0745bb8cf7506fe087105, type: 2}
   fastRotate: 1
 --- !u!135 &135616019881633734
 SphereCollider:

@@ -10,6 +10,9 @@ public class Enemy : MonoBehaviour, Destructable {
     [SerializeField]
     private GameObject explosionObject;
 
+	[SerializeField]
+	private GameObject[] bonusItem;
+
 	public bool fastRotate = true;
 
     #endregion
@@ -51,6 +54,15 @@ public class Enemy : MonoBehaviour, Destructable {
 		{
 			GameObject fx = (GameObject)Instantiate(explosionObject, transform.position, Quaternion.identity);
 			Destroy (fx, 3f);
+		}
+
+		int random = Random.Range (0,10);
+
+		if (random == 7) {
+			int item = Random.Range (0, bonusItem.Length - 1);
+			GameObject itemObject = bonusItem [item]; 
+			GameObject itemObjectInstance = Instantiate (itemObject, transform.position, Quaternion.identity);
+			Destroy (itemObjectInstance, 10f);
 		}
 
 		Destroy (gameObject);

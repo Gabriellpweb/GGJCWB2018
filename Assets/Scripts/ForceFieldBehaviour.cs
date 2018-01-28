@@ -36,6 +36,12 @@ public class ForceFieldBehaviour : MonoBehaviour {
 		forceFieldColliderObject.gameObject.SetActive (false);
 	}
 
+	public void EnableForceField()
+	{
+		forceFieldColliderObject.gameObject.SetActive (true);
+	}
+
+
 	public void Hit(Vector3 contactPoint)
 	{
 		float angle = Mathf.Atan2(contactPoint.y, contactPoint.x) * Mathf.Rad2Deg;
@@ -47,6 +53,15 @@ public class ForceFieldBehaviour : MonoBehaviour {
 
 		if (forceFieldHits <= 0) {
 			DisableForceField ();
+		}
+	}
+
+	public void AddCharges(int charges)
+	{
+		forceFieldHits += charges;
+
+		if (forceFieldColliderObject.gameObject.activeSelf) {
+			EnableForceField ();
 		}
 	}
 }

@@ -35,7 +35,7 @@ public class SatelliteBehaviour : MonoBehaviour, Destructable {
 
 	private float fireRateTime = 0;
 
-	private float fireRate = 1.5f;
+	private float fireRate = 4.5f;
 
 
 	// Use this for initialization
@@ -76,7 +76,7 @@ public class SatelliteBehaviour : MonoBehaviour, Destructable {
 			0
 		);
 		for (int i = 0; i < 3; i++) {
-			yield return new WaitForSeconds (0.08f);
+			yield return new WaitForSeconds (0.05f);
 			GameObject missile = GameObject.Instantiate (basicMissile, shotOriginPoint.transform.position, transform.rotation);
 			Physics.IgnoreCollision (GetComponentInChildren<Collider>(), missile.GetComponentInChildren<Collider>());
 			foreach (GameObject igo in ignoredObjects) {

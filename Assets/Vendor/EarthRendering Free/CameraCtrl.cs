@@ -8,7 +8,7 @@ public class CameraCtrl : MonoBehaviour
 	public MeshRenderer atmosphereRenderer = null;
 
 	float MIN_DIST = 200;
-	float MAX_DIST = 5000;
+	float MAX_DIST = 2600;
 
 	float dist = 1300;
 	Quaternion cameraRotation;
@@ -24,7 +24,7 @@ public class CameraCtrl : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		/*float wheelDelta = Input.GetAxis("Mouse ScrollWheel");
+		float wheelDelta = Input.GetAxis("Mouse ScrollWheel");
 		if (wheelDelta > 0)
 		{
 			dist *= 0.87f;
@@ -41,6 +41,7 @@ public class CameraCtrl : MonoBehaviour
 		{
 			dist = MAX_DIST;
 		}
+		/*
 		float xMove = Input.GetAxis("Mouse X");
 		float yMove = Input.GetAxis("Mouse Y");
 

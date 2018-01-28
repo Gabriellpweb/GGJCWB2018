@@ -68,10 +68,20 @@ public class MissileBase : MonoBehaviour {
 		if (collider.transform.parent.tag == "Player") {
 			return;
 		}
-		Destructable destructable = collider.transform.parent.GetComponent<Destructable> ();
 
-		if (destructable != null) {
-			destructable.Destruct ();
+		Collectable collectable = collider.transform.parent.GetComponent<Collectable> ();
+
+		if (collectable != null) {
+			
+			collectable.Collect ();
+
+		} else {
+
+			Destructable destructable = collider.transform.parent.GetComponent<Destructable> ();
+
+			if (destructable != null) {
+				destructable.Destruct ();
+			}
 		}
 
 		Destroy (gameObject);
