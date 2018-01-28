@@ -13,7 +13,7 @@ public class GameManagerController : MonoBehaviour {
 	public float score;
 
 	public static class Scenes {
-		public const string STAGE1 = "Stage1";
+		public const string STAGE1 = "workspace";
         public const string STAGE2 = "Stage2";
         public const string MENU = "Menu";
 		public const string GAME_OVER = "GameOver";
