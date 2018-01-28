@@ -16,6 +16,9 @@ public class TranslationBeaviour : MonoBehaviour {
 	[SerializeField]
 	private Vector3 angleVariation;
 
+	[SerializeField]
+	private Vector3 translationInitialAngle;
+
 	private Vector3 translationAngle = Vector3.zero;
 
 	private Vector3 objectPosition;
@@ -24,7 +27,7 @@ public class TranslationBeaviour : MonoBehaviour {
 	void Start () 
 	{
 		objectPosition = objectToOrbitTranslation.transform.position;
-
+		translationAngle = translationInitialAngle;
 	}
 	
 	// Update is called once per frame
