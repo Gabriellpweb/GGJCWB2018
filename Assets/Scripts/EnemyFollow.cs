@@ -17,7 +17,7 @@ public class EnemyFollow : MonoBehaviour
     private float Mass = 45;
 
     [SerializeField]
-    private float MaxSpeed = 500;
+    private float MaxSpeed = 150;
 
     [SerializeField]
     private float MaxForce = 15;

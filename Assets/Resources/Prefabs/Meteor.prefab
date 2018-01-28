@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Mass: 45
-  MaxSpeed: 700
+  MaxSpeed: 1500
   MaxForce: 15
   minDistanceToStop: 0.5
   target: {fileID: 0}

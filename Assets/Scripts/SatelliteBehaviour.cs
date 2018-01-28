@@ -19,9 +19,21 @@ public class SatelliteBehaviour : MonoBehaviour, Destructable {
 	[SerializeField]
 	private GameObject[] ignoredObjects;
 
+	[SerializeField]
+	private Weapon basicWeapon;
+
+	private Weapon equipedWeapon;
+
 	private bool canFire = true;
 
 	private float angle = 0;
+
+	private float timeToFire = 50f;
+
+	private float fireRateTime = 0;
+
+	private float fireRate = 1.5f;
+
 
 	// Use this for initialization
 	void Start () 
@@ -33,11 +45,20 @@ public class SatelliteBehaviour : MonoBehaviour, Destructable {
 	{
 		if (Input.GetButtonDown("Fire1") && canFire) {
 			Fire ();
-			//canFire = false;
+			canFire = false;
 		}
 
 		angle = Mathf.Atan2(transform.position.y, transform.position.x) * Mathf.Rad2Deg;
 		transform.rotation = Quaternion.Euler (new Vector3 (0, 0, angle));
+
+		if (!canFire && fireRateTime < timeToFire) {
+			fireRateTime += fireRate;
+		}
+
+		if (fireRateTime >= timeToFire) {
+			canFire = true;
+			fireRateTime = 0;
+		}
 	}
 
 	void Fire()
@@ -55,6 +76,7 @@ public class SatelliteBehaviour : MonoBehaviour, Destructable {
 				Physics.IgnoreCollision (igo.GetComponentInChildren<Collider>(), missile.GetComponentInChildren<Collider>());
 			}
 		}
+		Destroy (missile, 7);
 		MissileBase missileBase = missile.GetComponent<MissileBase> ();
 		missileBase.WithForce (direction);
 		missileBase.Fire ();
@@ -81,7 +103,8 @@ public class SatelliteBehaviour : MonoBehaviour, Destructable {
 
 		if (explosionObject != null)
 		{
-			Instantiate(explosionObject, transform.position, Quaternion.identity);
+			GameObject fx = Instantiate(explosionObject, transform.position, Quaternion.identity);
+			Destroy (fx, 7);
 		}
 
 		Destroy (gameObject);

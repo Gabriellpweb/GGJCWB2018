@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour, Destructable {
 
@@ -56,11 +57,16 @@ public class Enemy : MonoBehaviour, Destructable {
 
 	void OnTriggerEnter(Collider collider)
 	{
-		//Debug.Log (collider.name);
 		Destructable destructable = collider.transform.parent.GetComponent<Destructable> ();
 
 		if (destructable != null) {
-			destructable.Destruct ();
+			destructable.Hit ();
+		}
+
+		DestructablePlanet destructablePlanet = collider.gameObject.transform.parent.gameObject.GetComponent<DestructablePlanet> ();
+
+		if (destructablePlanet != null) {
+			destructablePlanet.Hit (transform.position);
 		}
 
 		Destruct ();
@@ -68,13 +74,19 @@ public class Enemy : MonoBehaviour, Destructable {
 
 	void OnCollisionEnter(Collision collision)
 	{
-		Destructable destructable = collision.gameObject.transform.root.gameObject.GetComponent<Destructable> ();
+		Destructable destructable = collision.gameObject.transform.parent.gameObject.GetComponent<Destructable> ();
 
 		if (destructable != null) 
 		{
 			destructable.Destruct ();
 		}
 
-		Destroy (gameObject);
+		DestructablePlanet destructablePlanet = collision.gameObject.transform.parent.gameObject.GetComponent<DestructablePlanet> ();
+
+		if (destructablePlanet != null) {
+			destructablePlanet.Hit (collision.contacts[0].point);
+		}
+
+		Destruct ();
 	}
 }
