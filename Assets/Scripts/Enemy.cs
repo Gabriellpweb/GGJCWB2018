@@ -46,4 +46,27 @@ public class Enemy : MonoBehaviour, Destructable {
 
 		Destroy (gameObject);
 	}
+
+	void OnTriggerEnter(Collider collider)
+	{
+		Destructable destructable = collider.transform.parent.GetComponent<Destructable> ();
+
+		if (destructable != null) {
+			destructable.Destruct ();
+		}
+
+		Destruct ();
+	}
+
+	void OnCollisionEnter(Collision collision)
+	{
+		Destructable destructable = collision.gameObject.transform.root.gameObject.GetComponent<Destructable> ();
+
+		if (destructable != null) 
+		{
+			destructable.Destruct ();
+		}
+
+		Destroy (gameObject);
+	}
 }

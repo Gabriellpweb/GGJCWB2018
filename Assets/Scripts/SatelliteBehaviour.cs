@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SatelliteBehaviour : MonoBehaviour {
+public class SatelliteBehaviour : MonoBehaviour, Destructable {
 
 	[SerializeField]
 	private Transform referenceObjectToAngle;
@@ -12,6 +12,12 @@ public class SatelliteBehaviour : MonoBehaviour {
 
 	[SerializeField]
 	private GameObject basicMissile;
+
+	[SerializeField]
+	private GameObject explosionObject;
+
+	[SerializeField]
+	private GameObject[] ignoredObjects;
 
 	private bool canFire = true;
 
@@ -43,9 +49,34 @@ public class SatelliteBehaviour : MonoBehaviour {
 		);
 
 		GameObject missile = GameObject.Instantiate (basicMissile, shotOriginPoint.transform.position, transform.rotation);
+		Physics.IgnoreCollision (GetComponentInChildren<Collider>(), missile.GetComponentInChildren<Collider>());
+		foreach (GameObject igo in ignoredObjects) {
+			if (igo != null) {
+				Physics.IgnoreCollision (igo.GetComponentInChildren<Collider>(), missile.GetComponentInChildren<Collider>());
+			}
+		}
 		MissileBase missileBase = missile.GetComponent<MissileBase> ();
 		missileBase.WithForce (direction);
 		missileBase.Fire ();
 	}
 
+	public void Hit()
+	{
+		Destruct ();
+	}
+
+	public void Hit(float damage)
+	{
+		//TODO: Must implements
+	}
+
+	public void Destruct()
+	{
+		if (explosionObject != null)
+		{
+			Instantiate(explosionObject, transform.position, Quaternion.identity);
+		}
+
+		Destroy (gameObject);
+	}
 }
