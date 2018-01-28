@@ -72,6 +72,13 @@ public class SatelliteBehaviour : MonoBehaviour, Destructable {
 
 	public void Destruct()
 	{
+		GameObject[] sats = GameObject.FindGameObjectsWithTag ("Player");
+		GameObject moon = GameObject.Find("moon");
+
+		if (sats.Length == 3 && moon == null) {
+			WaveController.Instance.callApocalipse ();
+		}
+
 		if (explosionObject != null)
 		{
 			Instantiate(explosionObject, transform.position, Quaternion.identity);

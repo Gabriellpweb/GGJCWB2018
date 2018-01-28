@@ -31,6 +31,16 @@ public class MoonBehaviour : MonoBehaviour, Destructable {
 
 	public void Destruct()
 	{
+		GameObject[] sats = GameObject.FindGameObjectsWithTag ("Player");
+
+		Debug.Log (sats.Length);
+
+		if (sats.Length == 1) {
+			WaveController.Instance.callApocalipse ();
+		} else {
+			Debug.Log (sats [0].name);
+		}
+
 		if (explosionObject != null)
 		{
 			Instantiate(explosionObject, transform.position, Quaternion.identity);

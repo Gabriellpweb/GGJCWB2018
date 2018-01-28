@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour, Destructable {
     [SerializeField]
     private GameObject explosionObject;
 
+	public bool fastRotate = true;
+
     #endregion
 
 	void FixedUpdate()
@@ -20,7 +22,12 @@ public class Enemy : MonoBehaviour, Destructable {
 		Vector3 tempPosition = transform.position;
 		tempPosition.x += 2f * Time.deltaTime;
 		transform.position = tempPosition;
-		transform.RotateAround(transform.position, transform.up, Time.deltaTime * 300f);
+		if (fastRotate) {
+			transform.RotateAround(transform.position, transform.up, Time.deltaTime * 300f);	
+		} else {
+			transform.RotateAround(transform.position, transform.up, Time.deltaTime * 10f);
+		}
+
 		transform.position = new Vector3 (transform.position.x, transform.position.y, 0f);
 	}
 
@@ -49,7 +56,7 @@ public class Enemy : MonoBehaviour, Destructable {
 
 	void OnTriggerEnter(Collider collider)
 	{
-		Debug.Log (collider.name);
+		//Debug.Log (collider.name);
 		Destructable destructable = collider.transform.parent.GetComponent<Destructable> ();
 
 		if (destructable != null) {
