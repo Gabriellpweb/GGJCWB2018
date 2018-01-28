@@ -11,18 +11,6 @@ public class Enemy : MonoBehaviour, Destructable {
 
     #endregion
 
-
-    // Use this for initialization
-    void Start ()
-    {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-	}
-
 	void FixedUpdate()
 	{
 		movementAndRotation ();
@@ -36,25 +24,6 @@ public class Enemy : MonoBehaviour, Destructable {
 		transform.position = new Vector3 (transform.position.x, transform.position.y, 0f);
 	}
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Player")
-        {
-            die();
-        }
-    }
-    
-    public void die()
-    {
-
-        if (explosionObject != null)
-        {
-            Instantiate(explosionObject, transform.position, Quaternion.identity);
-        }
-
-        Destroy(gameObject);
-    }
-
 	public void Hit()
 	{
 		Destruct ();
@@ -67,6 +36,11 @@ public class Enemy : MonoBehaviour, Destructable {
 
 	public void Destruct()
 	{
+		if (explosionObject != null)
+		{
+			Instantiate(explosionObject, transform.position, Quaternion.identity);
+		}
+
 		Destroy (gameObject);
 	}
 }
