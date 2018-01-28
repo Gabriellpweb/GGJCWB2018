@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 46231a4a5fe5c9d4fa0ef78a48a5f272
 timeCreated: 1517081335
 licenseType: Pro
+=======
+guid: 84b21872576551d4ea28d8e3131cfdd2
+timeCreated: 1517080889
+licenseType: Free
+>>>>>>> c1bb525d316091222a537248db1a7a8261a52378
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -9,6 +15,7 @@ ModelImporter:
     100002: //RootNode
     400000: Box002
     400002: //RootNode
+<<<<<<< HEAD
     2300000: Box002
     3300000: Box002
     4300000: Box002
@@ -18,11 +25,22 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Box002Mat
     second: {fileID: 2100000, guid: ff4a2087510f4154287b7943ea126c3e, type: 2}
+=======
+    2100000: Box002Mat
+    2300000: Box002
+    3300000: Box002
+    4300000: Box002
+  externalObjects: {}
+>>>>>>> c1bb525d316091222a537248db1a7a8261a52378
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
+<<<<<<< HEAD
     materialLocation: 0
+=======
+    materialLocation: 1
+>>>>>>> c1bb525d316091222a537248db1a7a8261a52378
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -60,6 +78,11 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+<<<<<<< HEAD
+=======
+    preserveHierarchy: 0
+    indexFormat: 0
+>>>>>>> c1bb525d316091222a537248db1a7a8261a52378
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88

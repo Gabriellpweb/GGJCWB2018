@@ -10,7 +10,7 @@ public class CameraCtrl : MonoBehaviour
 	float MIN_DIST = 200;
 	float MAX_DIST = 5000;
 
-	float dist = 3000;
+	float dist = 1300;
 	Quaternion cameraRotation;
 	Vector2 targetOffCenter = Vector2.zero;
 	Vector2 offCenter = Vector2.zero;
@@ -24,7 +24,7 @@ public class CameraCtrl : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		float wheelDelta = Input.GetAxis("Mouse ScrollWheel");
+		/*float wheelDelta = Input.GetAxis("Mouse ScrollWheel");
 		if (wheelDelta > 0)
 		{
 			dist *= 0.87f;
@@ -70,7 +70,7 @@ public class CameraCtrl : MonoBehaviour
 			float translateMultiply = 0.5625f * Screen.width / Screen.height * Mathf.Tan(GetComponent<Camera>().fieldOfView / 2) * dist / Screen.height / 2.5f;
 			offCenter.x = targetOffCenter.x * translateMultiply;
 			offCenter.y = targetOffCenter.y * translateMultiply;
-		}
+		}*/
 
 		transform.rotation = cameraRotation;
 

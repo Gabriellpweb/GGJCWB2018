@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour {
+public class Enemy : MonoBehaviour, Destructable {
 
     #region Properties
 
@@ -10,18 +10,6 @@ public class Enemy : MonoBehaviour {
     private GameObject explosionObject;
 
     #endregion
-
-
-    // Use this for initialization
-    void Start ()
-    {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-	}
 
 	void FixedUpdate()
 	{
@@ -36,22 +24,23 @@ public class Enemy : MonoBehaviour {
 		transform.position = new Vector3 (transform.position.x, transform.position.y, 0f);
 	}
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Player")
-        {
-            die();
-        }
-    }
-    
-    public void die()
-    {
+	public void Hit()
+	{
+		Destruct ();
+	}
 
-        if (explosionObject != null)
-        {
-            Instantiate(explosionObject, transform.position, Quaternion.identity);
-        }
+	public void Hit(float damage)
+	{
+		//TODO: Must implements
+	}
 
-        Destroy(gameObject);
-    }
+	public void Destruct()
+	{
+		if (explosionObject != null)
+		{
+			Instantiate(explosionObject, transform.position, Quaternion.identity);
+		}
+
+		Destroy (gameObject);
+	}
 }
