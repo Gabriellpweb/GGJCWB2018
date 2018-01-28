@@ -49,6 +49,7 @@ public class Enemy : MonoBehaviour, Destructable {
 
 	void OnTriggerEnter(Collider collider)
 	{
+		Debug.Log (collider.name);
 		Destructable destructable = collider.transform.parent.GetComponent<Destructable> ();
 
 		if (destructable != null) {
