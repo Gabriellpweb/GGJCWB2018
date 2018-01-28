@@ -43,7 +43,7 @@ public class SatelliteBehaviour : MonoBehaviour {
 			0
 		);
 
-		GameObject missile = GameObject.Instantiate (basicMissile, shotOriginPoint.transform.position, Quaternion.Euler(direction));
+		GameObject missile = GameObject.Instantiate (basicMissile, shotOriginPoint.transform.position, transform.rotation);
 		MissileBase missileBase = missile.GetComponent<MissileBase> ();
 		missileBase.WithForce (direction);
 		missileBase.Fire ();
