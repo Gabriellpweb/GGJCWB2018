@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour {
+public class Enemy : MonoBehaviour, Destructable {
 
     #region Properties
 
@@ -66,4 +66,19 @@ public class Enemy : MonoBehaviour {
 
         Destroy(gameObject);
     }
+
+	public void Hit()
+	{
+		Destruct ();
+	}
+
+	public void Hit(float damage)
+	{
+		//TODO: Must implements
+	}
+
+	public void Destruct()
+	{
+		Destroy (gameObject);
+	}
 }
