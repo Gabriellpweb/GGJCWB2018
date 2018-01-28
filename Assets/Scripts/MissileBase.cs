@@ -62,9 +62,21 @@ public class MissileBase : MonoBehaviour {
 		enabled = true;
 	}
 
+
+	void OnTriggerEnter(Collider collider)
+	{
+		Destructable destructable = collider.transform.parent.GetComponent<Destructable> ();
+
+		if (destructable != null) {
+			destructable.Destruct ();
+		}
+
+		Destroy (gameObject);
+	}
+
 	void OnCollisionEnter(Collision collision)
 	{
-		Destructable destructable = collision.gameObject.transform.parent.gameObject.GetComponent<Destructable> ();
+		Destructable destructable = collision.gameObject.transform.root.gameObject.GetComponent<Destructable> ();
 
 		if (destructable != null) 
 		{

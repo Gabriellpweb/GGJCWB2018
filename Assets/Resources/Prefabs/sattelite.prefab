@@ -39,9 +39,10 @@ GameObject:
   - component: {fileID: 4917221580092116}
   - component: {fileID: 33691501316015130}
   - component: {fileID: 23415302644888664}
+  - component: {fileID: 64002022838887242}
   m_Layer: 0
   m_Name: Mesh
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,7 +59,7 @@ GameObject:
   - component: {fileID: 114532590110429894}
   m_Layer: 0
   m_Name: sattelite
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,20 +85,20 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1939523511167384}
-  m_LocalRotation: {x: -0.24112949, y: 0.18541588, z: -0.75516975, w: 0.5806861}
-  m_LocalPosition: {x: 33.6, y: -9.5, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 70.4, y: -9.5, z: 0}
   m_LocalScale: {x: 10.000008, y: 10.000006, z: 10}
   m_Children: []
   m_Father: {fileID: 4361629998277362}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 35.417, z: -104.883}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4361629998277362
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1890795462081902}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 189.7322, y: -15.521896, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -215,6 +216,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1602151435484886}
   m_Mesh: {fileID: 4300000, guid: 84b21872576551d4ea28d8e3131cfdd2, type: 3}
+--- !u!64 &64002022838887242
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1602151435484886}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 84b21872576551d4ea28d8e3131cfdd2, type: 3}
 --- !u!114 &114333884311375478
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -230,6 +245,7 @@ MonoBehaviour:
   distanceFromObject: 200
   flatTranslation: 1
   angleVariation: {x: 1, y: 1, z: 0}
+  translationInitialAngle: {x: 0, y: 0, z: 0}
 --- !u!114 &114532590110429894
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -245,6 +261,10 @@ MonoBehaviour:
   shotOriginPoint: {fileID: 4154601665776290}
   basicMissile: {fileID: 1731042196906492, guid: 436cb93467e794f23a60643dcc97712f,
     type: 2}
+  explosionObject: {fileID: 1587864697296854, guid: 8693eee2bceeb4338a54fcf5f588dc86,
+    type: 2}
+  ignoredObjects:
+  - {fileID: 0}
 --- !u!136 &136875549095854180
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -253,7 +273,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1181558630033750}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1

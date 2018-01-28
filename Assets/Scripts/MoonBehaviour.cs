@@ -2,19 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoonBehaviour : MonoBehaviour {
+public class MoonBehaviour : MonoBehaviour, Destructable {
 
 	[SerializeField]
-	private GameObject explosionEffect;
+	private GameObject explosionObject;
 
 
 	void OnCollisionEnter(Collision collision)
 	{
-		Destructable destructable = collision.gameObject.transform.parent.gameObject.GetComponent<Destructable> ();
+		Destructable destructable = collision.gameObject.transform.root.gameObject.GetComponent<Destructable> ();
 
 		if (destructable != null) 
 		{
 			destructable.Destruct ();
+			Destroy (gameObject);
+		}
+	}
+
+	public void Hit()
+	{
+		Destruct ();
+	}
+
+	public void Hit(float damage)
+	{
+		//TODO: Must implements
+	}
+
+	public void Destruct()
+	{
+		if (explosionObject != null)
+		{
+			Instantiate(explosionObject, transform.position, Quaternion.identity);
 		}
 
 		Destroy (gameObject);
