@@ -54,8 +54,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxScale: {x: 70, y: 70, z: 1}
   initialScale: {x: 0, y: 0, z: 0}
-  scaleRate: {x: 1, y: 1, z: 1}
-  alphaRate: 0.6
+  scaleRate: {x: 5, y: 5, z: 1}
+  alphaRate: 1
 --- !u!212 &212140754900492388
 SpriteRenderer:
   m_ObjectHideFlags: 1
