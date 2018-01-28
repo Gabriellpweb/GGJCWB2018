@@ -9,7 +9,7 @@ public class MenuController : MonoBehaviour {
 
 	void Start () {
 		GameManagerController.Instance.currentLifes = 5;
-		GameManagerController.Instance.amountCrystals = 0;
+		GameManagerController.Instance.score = 0;
 	}
 	
 	void Update () {
