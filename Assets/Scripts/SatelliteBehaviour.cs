@@ -19,6 +19,11 @@ public class SatelliteBehaviour : MonoBehaviour, Destructable {
 	[SerializeField]
 	private GameObject[] ignoredObjects;
 
+	[SerializeField]
+	private Weapon basicWeapon;
+
+	private Weapon equipedWeapon;
+
 	private bool canFire = true;
 
 	private float angle = 0;
@@ -28,6 +33,7 @@ public class SatelliteBehaviour : MonoBehaviour, Destructable {
 	private float fireRateTime = 0;
 
 	private float fireRate = 1.5f;
+
 
 	// Use this for initialization
 	void Start () 
