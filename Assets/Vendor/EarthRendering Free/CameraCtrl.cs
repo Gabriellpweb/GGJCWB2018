@@ -10,7 +10,7 @@ public class CameraCtrl : MonoBehaviour
 	float MIN_DIST = 200;
 	float MAX_DIST = 2600;
 
-	float dist = 1300;
+	float dist = 2500;
 	Quaternion cameraRotation;
 	Vector2 targetOffCenter = Vector2.zero;
 	Vector2 offCenter = Vector2.zero;
