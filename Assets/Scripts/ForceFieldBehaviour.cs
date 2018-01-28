@@ -5,7 +5,7 @@ using UnityEngine;
 public class ForceFieldBehaviour : MonoBehaviour {
 
 	[SerializeField]
-	private int forceFieldHits;
+	public int forceFieldHits;
 
 	[SerializeField]
 	private Transform forceFieldColliderObject;

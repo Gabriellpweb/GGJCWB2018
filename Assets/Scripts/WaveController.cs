@@ -46,7 +46,7 @@ public class WaveController : MonoBehaviour {
 		spawners [selectedSpawner].sending = true;
 		waveNumber++;
 
-		if (waveNumber % 40 == 0 && numberOfSpawners < 7) {
+		if (waveNumber % 80 == 0 && numberOfSpawners < 7) {
 			numberOfSpawners++;
 		}
 	}
@@ -71,6 +71,6 @@ public class WaveController : MonoBehaviour {
 		);
 
 		apocalipse.GetComponent<EnemyFollow> ().setTarget (spawners [selectedSpawner].target);
-		spawners [selectedSpawner].target.GetComponent<ForceFieldBehaviour> ().DisableForceField();
+		spawners [selectedSpawner].target.GetComponent<ForceFieldBehaviour> ().forceFieldHits = 0;
 	}
 }
