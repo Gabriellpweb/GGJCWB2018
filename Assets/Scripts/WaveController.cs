@@ -46,7 +46,7 @@ public class WaveController : MonoBehaviour {
 		spawners [selectedSpawner].sending = true;
 		waveNumber++;
 
-		if (waveNumber % 80 == 0 && numberOfSpawners < 7) {
+		if (waveNumber % 40 == 0 && numberOfSpawners < 7) {
 			numberOfSpawners++;
 		}
 	}
