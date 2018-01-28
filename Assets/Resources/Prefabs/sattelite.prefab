@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4917221580092116}
   - component: {fileID: 33691501316015130}
   - component: {fileID: 23415302644888664}
-  - component: {fileID: 64002022838887242}
+  - component: {fileID: 64911499809404056}
   m_Layer: 0
   m_Name: Mesh
   m_TagString: Player
@@ -182,7 +182,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 84b21872576551d4ea28d8e3131cfdd2, type: 3}
+  - {fileID: 2100000, guid: 6164d98b694cb469ab511c498f2156ec, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -215,8 +215,8 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1602151435484886}
-  m_Mesh: {fileID: 4300000, guid: 84b21872576551d4ea28d8e3131cfdd2, type: 3}
---- !u!64 &64002022838887242
+  m_Mesh: {fileID: 4300000, guid: 46231a4a5fe5c9d4fa0ef78a48a5f272, type: 3}
+--- !u!64 &64911499809404056
 MeshCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -226,10 +226,10 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 14
   m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 84b21872576551d4ea28d8e3131cfdd2, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 46231a4a5fe5c9d4fa0ef78a48a5f272, type: 3}
 --- !u!114 &114333884311375478
 MonoBehaviour:
   m_ObjectHideFlags: 1
