@@ -169,9 +169,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: fdef5289e8a11aa489a4d5caa9786393, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5275acadf4ae7844088ce76362a73751, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -417,6 +417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panelLogo: {fileID: 634880912}
+  sceneToLoad: SplashScreenGGJCWB
 --- !u!4 &1727318255
 Transform:
   m_ObjectHideFlags: 0

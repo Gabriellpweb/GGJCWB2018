@@ -21,6 +21,18 @@ public class Enemy : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+		if (Input.GetKey(KeyCode.Space)) {
+			Debug.Log ("apertado");
+			GameObject explosion = (GameObject)Instantiate (
+				explosionObject, 
+				new Vector3(transform.position.x, transform.position.y, transform.position.z),
+				Quaternion.identity
+			);
+
+			Destroy (explosion, 3f);
+			Destroy (gameObject);
+		}
+
 	}
 
 	void FixedUpdate()
