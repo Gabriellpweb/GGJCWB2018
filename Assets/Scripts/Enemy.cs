@@ -49,7 +49,8 @@ public class Enemy : MonoBehaviour, Destructable {
 
 		if (explosionObject != null)
 		{
-			Instantiate(explosionObject, transform.position, Quaternion.identity);
+			GameObject fx = (GameObject)Instantiate(explosionObject, transform.position, Quaternion.identity);
+			Destroy (fx, 3f);
 		}
 
 		Destroy (gameObject);

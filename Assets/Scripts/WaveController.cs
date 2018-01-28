@@ -8,6 +8,7 @@ public class WaveController : MonoBehaviour {
 	private int waveNumber;
 	private int selectedSpawner;
 	public bool endGame = false;
+	private int numberOfSpawners = 1;
 
 	private static WaveController instance;
 
@@ -27,23 +28,27 @@ public class WaveController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		waveNumber = 0;
-		InvokeRepeating ("changeWave", 0, 2f);
+		waveNumber = 1;
+		InvokeRepeating ("changeWave", 0, 0.2f);
 	}
 
 	private void changeWave() {
 
-		if (selectedSpawner != null) {
+		/*if (selectedSpawner != null) {
 			spawners [selectedSpawner].sending = false;
-		}
+		}*/
 
 		if (endGame) {
 			return;
 		}
 
-		selectedSpawner = Random.Range (0, 7);
+		selectedSpawner = Random.Range (0, numberOfSpawners);
 		spawners [selectedSpawner].sending = true;
 		waveNumber++;
+
+		if (waveNumber % 40 == 0 && numberOfSpawners < 7) {
+			numberOfSpawners++;
+		}
 	}
 
 	public void callApocalipse () {
@@ -51,7 +56,9 @@ public class WaveController : MonoBehaviour {
 
 		Enemy[] enemys = GameObject.FindObjectsOfType<Enemy> ();
 
-		Debug.Log (enemys.Length);
+		foreach (SpawnController spawnController in spawners) {
+			spawnController.sending = false;
+		}
 
 		foreach (Enemy enemy in enemys) {
 			enemy.Destruct ();
@@ -64,5 +71,6 @@ public class WaveController : MonoBehaviour {
 		);
 
 		apocalipse.GetComponent<EnemyFollow> ().setTarget (spawners [selectedSpawner].target);
+		spawners [selectedSpawner].target.GetComponent<ForceFieldBehaviour> ().DisableForceField();
 	}
 }

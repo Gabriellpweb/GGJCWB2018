@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Mass: 45
-  MaxSpeed: 1500
+  MaxSpeed: 300
   MaxForce: 15
   minDistanceToStop: 0.5
   target: {fileID: 0}
@@ -241,6 +241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionObject: {fileID: 1587864697296854, guid: 8693eee2bceeb4338a54fcf5f588dc86,
     type: 2}
+  fastRotate: 1
 --- !u!135 &135616019881633734
 SphereCollider:
   m_ObjectHideFlags: 1

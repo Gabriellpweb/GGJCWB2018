@@ -265,6 +265,9 @@ MonoBehaviour:
     type: 2}
   ignoredObjects:
   - {fileID: 0}
+  sonarWaveEffect: {fileID: 1462717312944492, guid: 33ec54c89ed7d4e678c4d8e0c894e4c1,
+    type: 2}
+  basicWeapon: {fileID: 0}
 --- !u!136 &136875549095854180
 CapsuleCollider:
   m_ObjectHideFlags: 1

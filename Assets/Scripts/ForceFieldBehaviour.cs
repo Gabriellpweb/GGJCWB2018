@@ -31,7 +31,7 @@ public class ForceFieldBehaviour : MonoBehaviour {
 		return forceFieldHits > 0;
 	}
 
-	private void DisableForceField()
+	public void DisableForceField()
 	{
 		forceFieldColliderObject.gameObject.SetActive (false);
 	}

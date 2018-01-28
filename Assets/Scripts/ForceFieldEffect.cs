@@ -39,7 +39,7 @@ public class ForceFieldEffect : MonoBehaviour {
 		while (alpha > 0) {
 			sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, alpha);
 			alpha -= Time.deltaTime * 2;
-			Debug.Log (alpha);
+			//Debug.Log (alpha);
 			yield return null;
 		}	
 		sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 0);
