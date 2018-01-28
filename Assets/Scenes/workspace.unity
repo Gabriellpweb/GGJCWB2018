@@ -647,6 +647,7 @@ MonoBehaviour:
   - {fileID: 1430445624}
   - {fileID: 1824174930}
   - {fileID: 95518881}
+  endGame: 0
 --- !u!1 &592568010
 GameObject:
   m_ObjectHideFlags: 0
@@ -1423,7 +1424,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: daa8caf3c313d4e42a9d98399363ddb3, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: daa8caf3c313d4e42a9d98399363ddb3, type: 3}
