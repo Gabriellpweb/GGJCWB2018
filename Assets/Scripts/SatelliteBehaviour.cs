@@ -20,6 +20,9 @@ public class SatelliteBehaviour : MonoBehaviour, Destructable {
 	private GameObject[] ignoredObjects;
 
 	[SerializeField]
+	private GameObject sonarWaveEffect;
+
+	[SerializeField]
 	private Weapon basicWeapon;
 
 	private Weapon equipedWeapon;
@@ -44,7 +47,11 @@ public class SatelliteBehaviour : MonoBehaviour, Destructable {
 	void Update () 
 	{
 		if (Input.GetButtonDown("Fire1") && canFire) {
-			Fire ();
+			if (sonarWaveEffect != null) {
+				GameObject fx = Instantiate (sonarWaveEffect, transform.root.position, Quaternion.identity);
+				Destroy (fx, 3);
+			}
+			StartCoroutine(Fire ());
 			canFire = false;
 		}
 
@@ -61,25 +68,28 @@ public class SatelliteBehaviour : MonoBehaviour, Destructable {
 		}
 	}
 
-	void Fire()
+	IEnumerator Fire()
 	{
 		Vector3 direction = new Vector3(
 			5f * Mathf.Cos((angle * Mathf.PI) / 180f) + transform.position.x,
 			5f * Mathf.Sin((angle * Mathf.PI) / 180f) + transform.position.y,
 			0
 		);
-
-		GameObject missile = GameObject.Instantiate (basicMissile, shotOriginPoint.transform.position, transform.rotation);
-		Physics.IgnoreCollision (GetComponentInChildren<Collider>(), missile.GetComponentInChildren<Collider>());
-		foreach (GameObject igo in ignoredObjects) {
-			if (igo != null) {
-				Physics.IgnoreCollision (igo.GetComponentInChildren<Collider>(), missile.GetComponentInChildren<Collider>());
+		for (int i = 0; i < 3; i++) {
+			yield return new WaitForSeconds (0.08f);
+			GameObject missile = GameObject.Instantiate (basicMissile, shotOriginPoint.transform.position, transform.rotation);
+			Physics.IgnoreCollision (GetComponentInChildren<Collider>(), missile.GetComponentInChildren<Collider>());
+			foreach (GameObject igo in ignoredObjects) {
+				if (igo != null) {
+					Physics.IgnoreCollision (igo.GetComponentInChildren<Collider>(), missile.GetComponentInChildren<Collider>());
+				}
 			}
+
+			Destroy (missile, 7);
+			MissileBase missileBase = missile.GetComponent<MissileBase> ();
+			missileBase.WithForce (direction);
+			missileBase.Fire ();
 		}
-		Destroy (missile, 7);
-		MissileBase missileBase = missile.GetComponent<MissileBase> ();
-		missileBase.WithForce (direction);
-		missileBase.Fire ();
 	}
 
 	public void Hit()
