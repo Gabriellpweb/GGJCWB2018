@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour, Destructable {
 
@@ -49,7 +50,11 @@ public class Enemy : MonoBehaviour, Destructable {
 
 	void OnTriggerEnter(Collider collider)
 	{
-		Debug.Log (collider.name);
+		if (collider.transform.parent.tag == "Earth") {
+			SceneManager.LoadScene ("GameOver");
+			Destruct ();
+		}
+
 		Destructable destructable = collider.transform.parent.GetComponent<Destructable> ();
 
 		if (destructable != null) {
@@ -61,6 +66,11 @@ public class Enemy : MonoBehaviour, Destructable {
 
 	void OnCollisionEnter(Collision collision)
 	{
+		if (collision.transform.parent.tag == "Earth") {
+			SceneManager.LoadScene ("GameOver");
+			Destruct ();
+		}
+
 		Destructable destructable = collision.gameObject.transform.root.gameObject.GetComponent<Destructable> ();
 
 		if (destructable != null) 
@@ -68,6 +78,6 @@ public class Enemy : MonoBehaviour, Destructable {
 			destructable.Destruct ();
 		}
 
-		Destroy (gameObject);
+		Destruct ();
 	}
 }

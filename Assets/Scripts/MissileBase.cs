@@ -65,6 +65,9 @@ public class MissileBase : MonoBehaviour {
 
 	void OnTriggerEnter(Collider collider)
 	{
+		if (collider.transform.parent.tag == "Player") {
+			return;
+		}
 		Destructable destructable = collider.transform.parent.GetComponent<Destructable> ();
 
 		if (destructable != null) {
@@ -73,9 +76,13 @@ public class MissileBase : MonoBehaviour {
 
 		Destroy (gameObject);
 	}
-
+	/*
 	void OnCollisionEnter(Collision collision)
 	{
+		if (collision.transform.parent.tag == "Player") {
+			return;
+		}
+
 		Destructable destructable = collision.gameObject.transform.root.gameObject.GetComponent<Destructable> ();
 
 		if (destructable != null) 
@@ -85,4 +92,5 @@ public class MissileBase : MonoBehaviour {
 
 		Destroy (gameObject);
 	}
+	*/
 }

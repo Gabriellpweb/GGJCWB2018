@@ -33,7 +33,8 @@ public class MoonBehaviour : MonoBehaviour, Destructable {
 	{
 		if (explosionObject != null)
 		{
-			Instantiate(explosionObject, transform.position, Quaternion.identity);
+			GameObject fx = Instantiate(explosionObject, transform.position, Quaternion.identity);
+			Destroy (fx, 7);
 		}
 
 		Destroy (gameObject);
