@@ -1,32 +1,30 @@
 fileFormatVersion: 2
-guid: ff9c9927508b065468a82f5efa65c557
+guid: 304efd8ba75794a8383e0410bf9b0150
+timeCreated: 1517115167
+licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
-    100002: default
-    100004: Sphere_Sphere.001_Material
+    100002: Camera
+    100004: Sphere
+    100006: Sun
     400000: //RootNode
-    400002: default
-    400004: Sphere_Sphere.001_Material
-    2300000: default
-    2300002: Sphere_Sphere.001_Material
-    3300000: default
-    3300002: Sphere_Sphere.001_Material
-    4300000: default
-    4300002: Sphere_Sphere.001_Material
-    9500000: //RootNode
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material
-    second: {fileID: 2100000, guid: 2600c4041046b654dbe537cad1cd7ba8, type: 2}
+    400002: Camera
+    400004: Sphere
+    400006: Sun
+    2000000: Camera
+    2100000: Material
+    2300000: Sphere
+    3300000: Sphere
+    4300000: Sphere
+    10800000: Sun
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -95,7 +93,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
