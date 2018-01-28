@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class SplashScreenController : MonoBehaviour {
 
 	public RectTransform panelLogo;
+	public string sceneToLoad;
 
 	void Start() {
 		panelLogo.GetComponent<Animator> ().SetBool ("released", true);
@@ -27,6 +28,6 @@ public class SplashScreenController : MonoBehaviour {
 		//não faz nada ¬¬
 		panelLogo.GetComponent<Animator> ().SetBool ("released", false);
 
-		SceneManager.LoadScene (GameManagerController.Scenes.MENU);
+		SceneManager.LoadScene (sceneToLoad);
 	}
 }
