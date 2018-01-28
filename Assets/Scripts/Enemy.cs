@@ -36,6 +36,9 @@ public class Enemy : MonoBehaviour, Destructable {
 
 	public void Destruct()
 	{
+
+		GameManagerController.Instance.score += 100f;
+
 		if (explosionObject != null)
 		{
 			Instantiate(explosionObject, transform.position, Quaternion.identity);
