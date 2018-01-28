@@ -11,6 +11,22 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1998584448792846}
   m_IsPrefabParent: 1
+--- !u!1 &1743789075273690
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4886471829006382}
+  - component: {fileID: 135977511935530406}
+  m_Layer: 0
+  m_Name: ForceField
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1913662879401548
 GameObject:
   m_ObjectHideFlags: 0
@@ -21,6 +37,7 @@ GameObject:
   - component: {fileID: 4319861199706390}
   - component: {fileID: 33240981338702896}
   - component: {fileID: 23804147799045770}
+  - component: {fileID: 135373079649738756}
   m_Layer: 0
   m_Name: Atmosphere
   m_TagString: Untagged
@@ -39,9 +56,10 @@ GameObject:
   - component: {fileID: 33710158756802778}
   - component: {fileID: 23904203956318858}
   - component: {fileID: 114735524419713236}
+  - component: {fileID: 114061038400794208}
   m_Layer: 0
   m_Name: Earth
-  m_TagString: Untagged
+  m_TagString: Earth
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,9 +88,23 @@ Transform:
   m_LocalScale: {x: 100, y: 100.000015, z: 99.999985}
   m_Children:
   - {fileID: 4319861199706390}
+  - {fileID: 4886471829006382}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 12.74, y: 0.68, z: 0}
+--- !u!4 &4886471829006382
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1743789075273690}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4640196409139560}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23804147799045770
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -155,6 +187,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1998584448792846}
   m_Mesh: {fileID: 4300000, guid: 1cc11ffbe578fa547b800e780e45b9c1, type: 3}
+--- !u!114 &114061038400794208
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1998584448792846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3893e89e116340d9806047099c091bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forceFieldHits: 3
+  forceFieldColliderObject: {fileID: 4886471829006382}
+  forceFieldHudEffect: {fileID: 0}
 --- !u!114 &114735524419713236
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -172,3 +218,27 @@ MonoBehaviour:
   clockwise: 1
   direction: 1
   directionChangeSpeed: 2
+--- !u!135 &135373079649738756
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1913662879401548}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.98999995
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &135977511935530406
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1743789075273690}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.2704552
+  m_Center: {x: -0.04262329, y: 0.026754908, z: -2.46901e-10}

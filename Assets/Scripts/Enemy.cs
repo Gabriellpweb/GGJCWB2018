@@ -50,15 +50,16 @@ public class Enemy : MonoBehaviour, Destructable {
 
 	void OnTriggerEnter(Collider collider)
 	{
-		if (collider.transform.parent.tag == "Earth") {
-			SceneManager.LoadScene ("GameOver");
-			Destruct ();
-		}
-
 		Destructable destructable = collider.transform.parent.GetComponent<Destructable> ();
 
 		if (destructable != null) {
-			destructable.Destruct ();
+			destructable.Hit ();
+		}
+
+		DestructablePlanet destructablePlanet = collider.gameObject.transform.parent.gameObject.GetComponent<DestructablePlanet> ();
+
+		if (destructablePlanet != null) {
+			destructablePlanet.Hit (transform.position);
 		}
 
 		Destruct ();
@@ -66,16 +67,17 @@ public class Enemy : MonoBehaviour, Destructable {
 
 	void OnCollisionEnter(Collision collision)
 	{
-		if (collision.transform.parent.tag == "Earth") {
-			SceneManager.LoadScene ("GameOver");
-			Destruct ();
-		}
-
-		Destructable destructable = collision.gameObject.transform.root.gameObject.GetComponent<Destructable> ();
+		Destructable destructable = collision.gameObject.transform.parent.gameObject.GetComponent<Destructable> ();
 
 		if (destructable != null) 
 		{
 			destructable.Destruct ();
+		}
+
+		DestructablePlanet destructablePlanet = collision.gameObject.transform.parent.gameObject.GetComponent<DestructablePlanet> ();
+
+		if (destructablePlanet != null) {
+			destructablePlanet.Hit (collision.contacts[0].point);
 		}
 
 		Destruct ();
