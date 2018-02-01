@@ -55,6 +55,7 @@ public class WaveController : MonoBehaviour {
 		endGame = true;
 
 		Enemy[] enemys = GameObject.FindObjectsOfType<Enemy> ();
+		MissileBase[] missiles = GameObject.FindObjectsOfType<MissileBase> ();
 
 		foreach (SpawnController spawnController in spawners) {
 			spawnController.sending = false;
@@ -62,6 +63,10 @@ public class WaveController : MonoBehaviour {
 
 		foreach (Enemy enemy in enemys) {
 			enemy.Destruct ();
+		}
+
+		foreach (MissileBase missile in missiles) {
+			Destroy (missile.gameObject);
 		}
 
 		GameObject apocalipse = (GameObject)Instantiate(

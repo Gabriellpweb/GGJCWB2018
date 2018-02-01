@@ -41,7 +41,7 @@ public class CameraCtrl : MonoBehaviour
 		{
 			dist = MAX_DIST;
 		}
-		/*
+
 		float xMove = Input.GetAxis("Mouse X");
 		float yMove = Input.GetAxis("Mouse Y");
 
@@ -71,7 +71,7 @@ public class CameraCtrl : MonoBehaviour
 			float translateMultiply = 0.5625f * Screen.width / Screen.height * Mathf.Tan(GetComponent<Camera>().fieldOfView / 2) * dist / Screen.height / 2.5f;
 			offCenter.x = targetOffCenter.x * translateMultiply;
 			offCenter.y = targetOffCenter.y * translateMultiply;
-		}*/
+		}
 
 		transform.rotation = cameraRotation;
 

@@ -71,7 +71,7 @@ Transform:
   m_GameObject: {fileID: 1307700213105236}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 199.2, y: 67.3, z: 0}
-  m_LocalScale: {x: 300, y: 300, z: 300}
+  m_LocalScale: {x: 500, y: 500, z: 500}
   m_Children:
   - {fileID: 4484286621216890}
   - {fileID: 4632272231313118}
@@ -241,6 +241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionObject: {fileID: 1587864697296854, guid: 8693eee2bceeb4338a54fcf5f588dc86,
     type: 2}
+  bonusItem: []
   fastRotate: 0
 --- !u!135 &135616019881633734
 SphereCollider:
